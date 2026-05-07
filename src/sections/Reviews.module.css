@@ -1,6 +1,6 @@
 .section {
   min-height: var(--section-min-height);
-  background-color: var(--color-bg-alt);
+  background-color: #fff;
   scroll-margin-top: var(--nav-height);
   padding: var(--space-3xl) 0;
 }
@@ -16,7 +16,7 @@
   font-family: var(--font-body);
   font-size: var(--font-size-heading);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
+  color: #000;
   text-align: center;
   margin: 0 0 var(--space-2xl) 0;
 }
@@ -29,7 +29,7 @@
 
 .card {
   padding: var(--space-xl);
-  background-color: var(--color-bg-primary);
+  background-color: #666B76;
   border-radius: 8px;
   border: 1px solid rgba(102, 217, 237, 0.1);
 }

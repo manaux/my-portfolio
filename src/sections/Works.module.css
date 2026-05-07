@@ -7,7 +7,7 @@
 .container {
   max-width: var(--max-content-width);
   margin: 0 auto;
-  padding: 0 var(--content-padding-desktop);
+  padding: 0 var(--content-padding-desktop) var(--space-2xl);
   width: 100%;
 }
 
@@ -17,7 +17,18 @@
   font-weight: var(--font-weight-semibold);
   color: var(--color-text);
   text-align: center;
-  margin-bottom: var(--space-2xl);
+}
+
+.titleImage {
+  max-width: 1000px;
+  min-height: 460px;
+  padding-left: 585px;
+  background: url(../assets/exp-image-big-1.svg) no-repeat left center;
+  font-size: 18px;
+  line-height: 32px;
+  margin: 0 auto var(--space-3xl);;
+  display: flex;
+  align-items: center;
 }
 
 .grid {

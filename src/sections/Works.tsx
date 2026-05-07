@@ -6,7 +6,12 @@ export default function Works() {
   return (
     <section id="works" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>Works</h2>
+        <h2 className={styles.heading}>My Work</h2>
+        <div className={styles.titleImage}>
+          I'm a software engineer with 14 years of experience specializing in React, Flutter, and Angular
+          development for high-load web and mobile SaaS applications. Expert in leading full-scale UI redesigns and technical migrations while ensuring
+          seamless backend integration and superior product quality.
+        </div>
         <div className={styles.grid}>
           {projects.map((project, index) => {
             const isLarge = index < 3
@@ -14,13 +19,12 @@ export default function Works() {
               <Link
                 key={project.slug}
                 to={`/works/${project.slug}`}
-                className={`${styles.tile} ${isLarge ? styles.tileLarge : styles.tileSmall}`}
+                className={`${styles.tile} ${isLarge ? styles.tileLarge : styles.tileSmall} ${project.slug}`}
               >
                 <div
                   className={styles.placeholder}
                   style={{ backgroundColor: project.color }}
                 >
-                  <span className={styles.placeholderName}>{project.name}</span>
                 </div>
                 <div className={styles.tileContent}>
                   <h3 className={styles.tileName}>{project.name}</h3>
