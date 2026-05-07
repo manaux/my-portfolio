@@ -23,9 +23,8 @@ export default function Works() {
               >
                 <div
                   className={styles.placeholder}
-                  style={{ backgroundColor: project.color }}
-                >
-                </div>
+                  style={{ backgroundImage: `url(${project.logo})` }}
+                />
                 <div className={styles.tileContent}>
                   <h3 className={styles.tileName}>{project.name}</h3>
                   <p className={styles.tileDescription}>{project.shortDescription}</p>

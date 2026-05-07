@@ -1,3 +1,11 @@
+import sharedLogo from '../assets/shared-logo.jpg'
+import tmfLogo from '../assets/tmf-logo.jpg'
+import adpLogo from '../assets/adp-logo.jpg'
+import teamyLogo from '../assets/teamy-logo.webp'
+import rwmLogo from '../assets/rwm-logo.webp'
+import syncLogo from '../assets/sync-logo.jpg'
+import fsdLogo from '../assets/fsd-logo.webp'
+
 export interface Project {
   slug: string
   name: string
@@ -5,6 +13,7 @@ export interface Project {
   fullDescription: string
   techStack: string[]
   color: string
+  logo: string
 }
 
 export const projects: Project[] = [
@@ -16,6 +25,7 @@ export const projects: Project[] = [
       'A large-scale file hosting and sharing platform serving millions of users worldwide. Built responsive web interfaces for file management, upload workflows, and user dashboards with focus on performance and cross-browser compatibility.',
     techStack: ['JavaScript', 'TypeScript', 'React', 'jQuery', 'HTML5', 'CSS3', 'REST API', 'AMP', 'Lighthouse', 'JSP', 'mySQL', 'Figma', 'Google Analytics', 'Payments', 'Ads integration'],
     color: '#1a5276',
+    logo: sharedLogo,
   },
   {
     slug: 'track-me-fast',
@@ -25,6 +35,7 @@ export const projects: Project[] = [
       'Cross-platform mobile application for real-time parcels tracking. Features include live location tracking on interactive maps, geofencing alerts, push notifications, route history playback, and offline data synchronization for areas with poor connectivity.',
     techStack: ['Flutter', 'Dart', 'Firebase', 'REST API', 'React', 'RevenueCat', 'Xcode', 'Android Studio', 'Payments', 'AdMob', 'Crashlytics'],
     color: '#1e8449',
+    logo: tmfLogo,
   },
   {
     slug: 'adplayer-pro',
@@ -34,6 +45,7 @@ export const projects: Project[] = [
       'A comprehensive video advertising platform with advanced ad-serving logic, real-time analytics dashboards, and embeddable video player widgets. Built complex reporting interfaces for campaign performance tracking and revenue analytics.',
     techStack: ['JavaScript', 'Angular', 'HTML5', 'CSS3', 'Webpack', 'REST API', 'VAST/VPAID', 'gRPC', 'C3.js charts'],
     color: '#7d3c98',
+    logo: adpLogo,
   },
   {
     slug: 'teamy',
@@ -43,6 +55,7 @@ export const projects: Project[] = [
         'A team collaboration platform for project management and task tracking. Built interactive kanban boards, real-time chat integration, file sharing capabilities, and team activity dashboards.',
     techStack: ['Angular', 'gRPC', 'REST API', 'HTML5', 'CSS3'],
     color: '#d4ac0d',
+    logo: teamyLogo,
   },
   {
     slug: 'ringtone-maker-wiz',
@@ -52,6 +65,7 @@ export const projects: Project[] = [
       'Mobile application for creating custom ringtones from audio files. Features include waveform visualization, precise audio trimming with drag handles, fade in/out effects, and direct ringtone assignment to contacts.',
     techStack: ['JavaScript', 'Audio API', 'HTML5', 'CSS3', 'REST API'],
     color: '#c0392b',
+    logo: rwmLogo,
   },
   {
     slug: '4sync',
@@ -61,6 +75,7 @@ export const projects: Project[] = [
         'Cloud storage and file synchronization service with native mobile apps and web client. Developed Android applications for file management, automatic photo backup, and cross-device sync. Built responsive web interfaces for file browsing and sharing.',
     techStack: ['JavaScript', 'jQuery', 'HTML5', 'CSS3', 'REST API', 'Java', 'Bootstrap', 'Photoshop'],
     color: '#2e86c1',
+    logo: syncLogo,
   },
   {
     slug: 'hw4-checker',
@@ -70,5 +85,6 @@ export const projects: Project[] = [
       'An automated system for verifying and grading homework submissions. Features include code analysis, automated test execution, plagiarism detection, and detailed feedback generation for students and instructors.',
     techStack: ['TypeScript', 'React', 'Tailwind CSS', 'GitHub Actions'],
     color: '#17a589',
+    logo: fsdLogo,
   },
 ]
