@@ -3,16 +3,23 @@ import styles from './Nav.module.css'
 
 const sections = ['home', 'expertise', 'works', 'experience', 'reviews']
 const labels: Record<string, string> = {
-  home: 'Home',
-  expertise: 'Expertise',
-  works: 'Works',
-  experience: 'Experience',
-  reviews: 'Reviews',
+  home: '// Home',
+  expertise: '// Expertise',
+  works: '// Work',
+  experience: '// Experience',
+  reviews: '// Reviews',
 }
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   useEffect(() => {
     const observers: IntersectionObserver[] = []
@@ -51,15 +58,8 @@ function Nav() {
   }
 
   return (
-    <header className={styles.nav}>
+    <header className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
       <div className={styles.navInner}>
-        <a
-          className={styles.logo}
-          href="#"
-          onClick={(e) => handleNavClick(e, 'home')}
-        >
-          SB
-        </a>
         <button
           className={`${styles.hamburger} ${isOpen ? styles.hamburgerOpen : ''}`}
           onClick={() => setIsOpen((prev) => !prev)}

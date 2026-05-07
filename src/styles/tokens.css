@@ -1,14 +1,15 @@
 :root {
-  /* Colors — per DSGN-01, D-06 */
+  /* Colors */
   --color-bg-primary: #0d1117;
   --color-bg-secondary: #161b22;
   --color-bg-alt: #111820;
+  --color-bg-blackout: #000000;
   --color-accent: #66d9ed;
   --color-text: #e6edf3;
   --color-nav-overlay: rgba(13, 17, 23, 0.85);
   --color-destructive: #f85149;
 
-  /* Spacing — per UI-SPEC spacing scale */
+  /* Spacing */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
@@ -17,17 +18,18 @@
   --space-2xl: 48px;
   --space-3xl: 64px;
 
-  /* Typography — per UI-SPEC */
+  /* Typography */
   --font-nav: 'Roboto Mono', monospace;
   --font-body: 'Inter', sans-serif;
   --font-size-nav: 14px;
   --font-size-body: 16px;
-  --font-size-heading: 28px;
-  --font-size-display: 48px;
+  --font-size-heading: 54px;
+  --font-size-display: 100px;
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-  /* Layout — per D-07, UI-SPEC */
+  /* Layout */
   --max-content-width: 1200px;
   --nav-height: 64px;
   --content-padding-desktop: 24px;

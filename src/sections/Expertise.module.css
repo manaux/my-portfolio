@@ -15,25 +15,43 @@
 .heading {
   font-family: var(--font-body);
   font-size: var(--font-size-heading);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   color: var(--color-text);
   text-align: center;
-  margin: 0 0 var(--space-2xl) 0;
+}
+
+.titleImage {
+  height: 460px;
+  display: block;
+  background: url(../assets/exp-image-big.svg) no-repeat bottom;
 }
 
 .cards {
   display: flex;
   gap: var(--space-xl);
   justify-content: center;
+  margin: var(--space-2xl) 0;
 }
 
 .card {
   flex: 1;
-  max-width: 500px;
+  max-width: 550px;
   padding: var(--space-xl);
   background-color: var(--color-bg-primary);
-  border-radius: 8px;
-  border: 1px solid rgba(102, 217, 237, 0.15);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  display: flex;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 0 16px rgba(255,255,255,0.3);
+}
+
+.cardImage {
+  display: block;
+  width: 120px;
+  margin-right: var(--space-xl);
 }
 
 .cardTitle {
