@@ -1,0 +1,134 @@
+/* Sticky header with semi-transparent background and backdrop blur — D-01 */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background: var(--color-nav-overlay);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+}
+
+/* Max-width container centered horizontally */
+.navInner {
+  max-width: var(--max-content-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--content-padding-desktop);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo monogram — "SB" initials in Roboto Mono */
+.logo {
+  font-family: var(--font-nav);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* Desktop nav links row */
+.links {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+/* Individual nav link default state */
+.links a {
+  font-family: var(--font-nav);
+  font-size: var(--font-size-nav);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 150ms ease;
+  line-height: 1.0;
+}
+
+/* Nav link hover state */
+.links a:hover {
+  color: var(--color-accent);
+}
+
+/* Active nav link — currently visible section, highlighted in cyan */
+.links a.active {
+  color: var(--color-accent);
+  transition: color 200ms ease;
+}
+
+/* Hamburger hidden on desktop */
+.hamburger {
+  display: none;
+}
+
+/* Mobile styles — below 768px */
+@media (max-width: 768px) {
+  .navInner {
+    padding: 0 var(--content-padding-mobile);
+  }
+
+  /* Hamburger button visible on mobile */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+    z-index: 101;
+  }
+
+  /* Three horizontal bars — hamburger icon in accent color */
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--color-accent);
+    transition: transform 200ms ease, opacity 200ms ease;
+    display: block;
+  }
+
+  /* Animated X when hamburger is open */
+  .hamburgerOpen span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburgerOpen span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburgerOpen span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Mobile nav links hidden by default */
+  .links {
+    display: none;
+  }
+
+  /* Mobile nav links visible when menu open */
+  .linksOpen {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--color-bg-primary);
+    padding: var(--space-md) 0;
+  }
+
+  /* Mobile nav link items — full-width with 44px min touch target */
+  .linksOpen a {
+    padding: var(--space-md) var(--content-padding-mobile);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}

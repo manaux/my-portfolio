@@ -1,0 +1,37 @@
+:root {
+  /* Colors — per DSGN-01, D-06 */
+  --color-bg-primary: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-bg-alt: #111820;
+  --color-accent: #66d9ed;
+  --color-text: #e6edf3;
+  --color-nav-overlay: rgba(13, 17, 23, 0.85);
+  --color-destructive: #f85149;
+
+  /* Spacing — per UI-SPEC spacing scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Typography — per UI-SPEC */
+  --font-nav: 'Roboto Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  --font-size-nav: 14px;
+  --font-size-body: 16px;
+  --font-size-heading: 28px;
+  --font-size-display: 48px;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+
+  /* Layout — per D-07, UI-SPEC */
+  --max-content-width: 1200px;
+  --nav-height: 64px;
+  --content-padding-desktop: 24px;
+  --content-padding-mobile: 16px;
+  --mobile-breakpoint: 768px;
+  --section-min-height: 400px;
+}
