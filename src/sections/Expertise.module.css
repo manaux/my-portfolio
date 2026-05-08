@@ -70,11 +70,39 @@
     padding: 0 var(--content-padding-mobile);
   }
 
+  .heading {
+    font-size: 36px;
+  }
+
   .cards {
-    flex-direction: column;
+    margin-bottom: 0;
   }
 
   .card {
-    max-width: 100%;
+    padding: 200px 0 35px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #666;
+  }
+
+  .card:last-child {
+    border: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .card:before {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  .cardTitle {
+    text-align: center;
+  }
+
+  .cardText {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 22px;
   }
 }

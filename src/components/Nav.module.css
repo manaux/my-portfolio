@@ -69,6 +69,10 @@
     justify-content: left;
   }
 
+  .navScrolled {
+    background: rgba(13, 17, 23, 0.3);
+  }
+
   .hamburger {
     display: flex;
     flex-direction: column;

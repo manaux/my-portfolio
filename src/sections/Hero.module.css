@@ -100,6 +100,8 @@
 
   .subtitle {
     font-size: 24px;
+    color: #fff;
+    text-shadow: 0 0 2px #eee;
   }
 
   .links {

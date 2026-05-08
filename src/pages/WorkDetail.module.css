@@ -131,8 +131,13 @@
 
 @media (max-width: 768px) {
   .hero {
-    height: 600px;
+    height: 400px;
     font-size: 24px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 36px;
   }
 
   .content {
@@ -142,4 +147,9 @@
   .backWrapper {
     padding: var(--space-lg) var(--content-padding-mobile);
   }
+
+  .heroImage {
+    max-width: 100%;
+  }
+
 }
