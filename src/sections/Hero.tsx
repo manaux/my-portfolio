@@ -10,7 +10,8 @@ export default function Hero() {
         <p className={styles.subtitle}>Software Engineer, Front End &amp; App Developer</p>
         <div className={styles.links}>
           <a href="mailto:s.bilodedenko@gmail.com" className={styles.link}>
-            s.bilodedenko@gmail.com
+            <span className={styles.longEmail}>s.bilodedenko@gmail.com</span>
+            <span className={styles.shortEmail}>E-mail</span>
           </a>
           <a
             href="https://linkedin.com/in/bilodedenko"

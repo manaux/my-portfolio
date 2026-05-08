@@ -84,6 +84,10 @@
   opacity: 1;
 }
 
+.shortEmail {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .hero canvas {
     opacity: 0.7;
@@ -95,18 +99,32 @@
   }
 
   .name {
-    font-size: 60px;
+    font-size: 54px;
   }
 
   .subtitle {
     font-size: 24px;
     color: #fff;
     text-shadow: 0 0 2px #eee;
+    margin-top: 35dvh;
   }
 
   .links {
-    flex-direction: column;
-    gap: var(--space-md);
+    flex-direction: row;
+    gap: var(--space-lg);
     align-items: center;
+    margin-top: 16px;
+  }
+
+  .link {
+    font-size: 15px;
+  }
+
+  .longEmail {
+    display: none;
+  }
+
+  .shortEmail {
+    display: inline;
   }
 }
