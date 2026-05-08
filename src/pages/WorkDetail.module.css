@@ -91,6 +91,31 @@
   font-size: var(--font-size-body);
 }
 
+.description strong {
+  color: #fff;
+  display: block;
+  padding: 5px 0;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.description p {
+  margin: 5px 0 15px;
+}
+
+.description ul {
+  margin: 5px 0 15px;
+  padding-left: 20px;
+}
+
+.description li {
+  margin-bottom: 5px;
+}
+
+.description b {
+  color: #66d9ed;
+}
+
 .techHeading {
   font-size: 18px;
   font-weight: var(--font-weight-semibold);
@@ -128,6 +153,9 @@
   padding: 0 var(--content-padding-desktop);
   font-family: var(--font-body);
 }
+
+
+
 
 @media (max-width: 768px) {
   .hero {

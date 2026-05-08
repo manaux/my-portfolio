@@ -54,7 +54,7 @@ function WorkDetail() {
 
         <div className={styles.content}>
           <h1 className={styles.title}>{project.name}</h1>
-          <p className={styles.description}>{project.fullDescription}</p>
+          <div className={styles.description} dangerouslySetInnerHTML={{ __html: project.fullDescription }} />
 
           <section>
             <h2 className={styles.techHeading}>Tech Stack</h2>
