@@ -1,4 +1,5 @@
-import { useParams, Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 import Carousel from '../components/Carousel'
 import Nav from '../components/Nav'
@@ -6,7 +7,14 @@ import styles from './WorkDetail.module.css'
 
 function WorkDetail() {
   const { slug } = useParams<{ slug: string }>()
+  const navigate = useNavigate()
   const project = projects.find((p) => p.slug === slug)
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+    document.body.classList.add('work-page')
+    return () => document.body.classList.remove('work-page')
+  }, [slug])
 
   if (!project) {
     return (
@@ -20,29 +28,29 @@ function WorkDetail() {
     )
   }
 
-  const carouselItems = [
-    { color: project.color, label: 'Screenshot 1' },
-    { color: project.color + 'cc', label: 'Screenshot 2' },
-    { color: project.color + '99', label: 'Screenshot 3' },
-    { color: project.color + '66', label: 'Screenshot 4' },
-  ]
-
   return (
     <>
       <Nav />
       <div className={styles.page}>
         <div className={styles.backWrapper}>
-          <Link to="/" className={styles.backLink}>
+          <button
+            className={styles.backLink}
+            onClick={() => {
+              navigate('/')
+              setTimeout(() => {
+                document.getElementById('works')?.scrollIntoView({ behavior: 'instant' })
+              }, 100)
+            }}
+          >
             ← Back to Works
-          </Link>
+          </button>
         </div>
 
-        <div
-          className={styles.hero}
-          style={{ backgroundColor: project.color }}
-        >
-          <span>{project.name}</span>
-        </div>
+        {project.heroScreenshot && (
+          <div className={styles.hero}>
+            <img src={project.heroScreenshot} alt={`${project.name} screenshot`} className={styles.heroImage} />
+          </div>
+        )}
 
         <div className={styles.content}>
           <h1 className={styles.title}>{project.name}</h1>
@@ -60,10 +68,12 @@ function WorkDetail() {
           </section>
         </div>
 
-        <section className={styles.carouselSection}>
-          <h2 className={styles.carouselHeading}>Screenshots</h2>
-          <Carousel items={carouselItems} />
-        </section>
+        {project.screenshots.length > 0 && (
+          <section className={styles.carouselSection}>
+            <h2 className={styles.carouselHeading}>Screenshots</h2>
+            <Carousel items={project.screenshots} />
+          </section>
+        )}
       </div>
     </>
   )

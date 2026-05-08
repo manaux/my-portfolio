@@ -1,10 +1,29 @@
 import sharedLogo from '../assets/shared-logo.jpg'
 import tmfLogo from '../assets/tmf-logo.jpg'
 import adpLogo from '../assets/adp-logo.jpg'
-import teamyLogo from '../assets/teamy-logo.webp'
-import rwmLogo from '../assets/rwm-logo.webp'
+import teamyLogo from '../assets/teamy-logo.jpg'
+import rwmLogo from '../assets/rwm-logo.jpg'
 import syncLogo from '../assets/sync-logo.jpg'
-import fsdLogo from '../assets/fsd-logo.webp'
+import fsdLogo from '../assets/fsd-logo.jpg'
+
+const allScreenshots = import.meta.glob<{ default: string }>(
+  '../assets/screenshots/**/*.{jpg,jpeg,png,webp}',
+  { eager: true }
+)
+
+function getScreenshots(folder: string): { heroScreenshot: string; screenshots: string[] } {
+  const entries = Object.entries(allScreenshots)
+    .filter(([path]) => path.includes(`/screenshots/${folder}/`))
+    .map(([path, mod]) => ({ path, url: mod.default }))
+
+  const heroScreenshot = entries.find(e => e.path.includes('desktop-screen-1'))?.url ?? ''
+  const screenshots = entries
+    .filter(e => !e.path.includes('desktop-screen-1'))
+    .sort((a, b) => a.path.localeCompare(b.path, undefined, { numeric: true }))
+    .map(e => e.url)
+
+  return { heroScreenshot, screenshots }
+}
 
 export interface Project {
   slug: string
@@ -14,6 +33,8 @@ export interface Project {
   techStack: string[]
   color: string
   logo: string
+  heroScreenshot: string
+  screenshots: string[]
 }
 
 export const projects: Project[] = [
@@ -26,6 +47,7 @@ export const projects: Project[] = [
     techStack: ['JavaScript', 'TypeScript', 'React', 'jQuery', 'HTML5', 'CSS3', 'REST API', 'AMP', 'Lighthouse', 'JSP', 'mySQL', 'Figma', 'Google Analytics', 'Payments', 'Ads integration'],
     color: '#1a5276',
     logo: sharedLogo,
+    ...getScreenshots('4shared'),
   },
   {
     slug: 'track-me-fast',
@@ -36,6 +58,7 @@ export const projects: Project[] = [
     techStack: ['Flutter', 'Dart', 'Firebase', 'REST API', 'React', 'RevenueCat', 'Xcode', 'Android Studio', 'Payments', 'AdMob', 'Crashlytics'],
     color: '#1e8449',
     logo: tmfLogo,
+    ...getScreenshots('tmf'),
   },
   {
     slug: 'adplayer-pro',
@@ -46,6 +69,7 @@ export const projects: Project[] = [
     techStack: ['JavaScript', 'Angular', 'HTML5', 'CSS3', 'Webpack', 'REST API', 'VAST/VPAID', 'gRPC', 'C3.js charts'],
     color: '#7d3c98',
     logo: adpLogo,
+    ...getScreenshots('adplayer'),
   },
   {
     slug: 'teamy',
@@ -56,6 +80,7 @@ export const projects: Project[] = [
     techStack: ['Angular', 'gRPC', 'REST API', 'HTML5', 'CSS3'],
     color: '#d4ac0d',
     logo: teamyLogo,
+    ...getScreenshots('teamy'),
   },
   {
     slug: 'ringtone-maker-wiz',
@@ -66,6 +91,7 @@ export const projects: Project[] = [
     techStack: ['JavaScript', 'Audio API', 'HTML5', 'CSS3', 'REST API'],
     color: '#c0392b',
     logo: rwmLogo,
+    ...getScreenshots('rwm'),
   },
   {
     slug: '4sync',
@@ -76,6 +102,7 @@ export const projects: Project[] = [
     techStack: ['JavaScript', 'jQuery', 'HTML5', 'CSS3', 'REST API', 'Java', 'Bootstrap', 'Photoshop'],
     color: '#2e86c1',
     logo: syncLogo,
+    ...getScreenshots('4sync'),
   },
   {
     slug: 'hw4-checker',
@@ -86,5 +113,6 @@ export const projects: Project[] = [
     techStack: ['TypeScript', 'React', 'Tailwind CSS', 'GitHub Actions'],
     color: '#17a589',
     logo: fsdLogo,
+    ...getScreenshots('hw4checker'),
   },
 ]

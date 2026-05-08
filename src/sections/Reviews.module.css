@@ -3,6 +3,9 @@
   background-color: #fff;
   scroll-margin-top: var(--nav-height);
   padding: var(--space-3xl) 0;
+
+  /* hide till get real feedback */
+  display: none;
 }
 
 .container {

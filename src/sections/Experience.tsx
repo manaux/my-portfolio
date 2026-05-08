@@ -66,7 +66,7 @@ const experiences: ExperienceEntry[] = [
 ]
 
 export default function Experience() {
-  const [openItems, setOpenItems] = useState<Set<number>>(new Set())
+  const [openItems, setOpenItems] = useState<Set<number>>(new Set(experiences.map((_, i) => i)))
 
   function toggleItem(index: number) {
     setOpenItems((prev) => {

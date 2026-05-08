@@ -10,7 +10,7 @@ import WorkDetail from './pages/WorkDetail'
 
 function HomePage() {
   return (
-    <>
+    <div className={styles.homePage}>
       <Nav />
       <main>
         <Hero />
@@ -19,7 +19,7 @@ function HomePage() {
         <Experience />
         <Reviews />
       </main>
-    </>
+    </div>
   )
 }
 

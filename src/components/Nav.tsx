@@ -1,19 +1,26 @@
 import { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import styles from './Nav.module.css'
 
-const sections = ['home', 'expertise', 'works', 'experience', 'reviews']
+/* todo: show reviews section when I will have real feedback */
+const sections = ['home', 'expertise', 'works', 'experience']
+// const sections = ['home', 'expertise', 'works', 'experience', 'reviews']
 const labels: Record<string, string> = {
   home: '// Home',
   expertise: '// Expertise',
   works: '// Work',
   experience: '// Experience',
-  reviews: '// Reviews',
+  // reviews: '// Reviews',
 }
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
+  const isHome = location.pathname === '/'
+  const isWorkPage = location.pathname.startsWith('/works/')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -54,7 +61,14 @@ function Nav() {
   const handleNavClick = (e: React.MouseEvent, id: string) => {
     e.preventDefault()
     setIsOpen(false)
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    if (isHome) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate('/')
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    }
   }
 
   return (
@@ -74,7 +88,7 @@ function Nav() {
             <a
               key={id}
               href="#"
-              className={activeSection === id ? styles.active : undefined}
+              className={(isHome ? activeSection === id : isWorkPage && id === 'works') ? styles.active : undefined}
               onClick={(e) => handleNavClick(e, id)}
             >
               {labels[id]}

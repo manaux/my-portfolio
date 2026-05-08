@@ -1,13 +1,8 @@
 import { useRef, useState } from 'react'
 import styles from './Carousel.module.css'
 
-interface CarouselItem {
-  color: string
-  label: string
-}
-
 interface CarouselProps {
-  items: CarouselItem[]
+  items: string[]
 }
 
 function Carousel({ items }: CarouselProps) {
@@ -42,13 +37,9 @@ function Carousel({ items }: CarouselProps) {
         ref={scrollRef}
         onScroll={handleScroll}
       >
-        {items.map((item, index) => (
-          <div
-            key={index}
-            className={styles.item}
-            style={{ backgroundColor: item.color }}
-          >
-            <span className={styles.itemLabel}>{item.label}</span>
+        {items.map((src, index) => (
+          <div key={index} className={styles.item}>
+            <img src={src} alt={`Screenshot ${index + 1}`} className={styles.itemImage} />
           </div>
         ))}
       </div>
