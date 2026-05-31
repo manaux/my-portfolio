@@ -54,6 +54,23 @@ function WorkDetail() {
 
         <div className={styles.content}>
           <h1 className={styles.title}>{project.name}</h1>
+
+          {project.links && project.links.length > 0 && (
+            <div className={styles.links}>
+              {project.links.map((link) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.linkButton}
+                >
+                  {link.label} ↗
+                </a>
+              ))}
+            </div>
+          )}
+
           <div className={styles.description} dangerouslySetInnerHTML={{ __html: project.fullDescription }} />
 
           <section>

@@ -25,6 +25,11 @@ function getScreenshots(folder: string): { heroScreenshot: string; screenshots: 
   return { heroScreenshot, screenshots }
 }
 
+export interface ProjectLink {
+  label: string
+  url: string
+}
+
 export interface Project {
   slug: string
   name: string
@@ -35,6 +40,7 @@ export interface Project {
   logo: string
   heroScreenshot: string
   screenshots: string[]
+  links?: ProjectLink[]
 }
 
 export const projects: Project[] = [
@@ -59,6 +65,7 @@ export const projects: Project[] = [
     techStack: ['JavaScript', 'TypeScript', 'React', 'jQuery', 'HTML5', 'CSS3', 'REST API', 'AMP', 'Lighthouse', 'JSP', 'mySQL', 'Figma', 'Google Analytics', 'Payments', 'Ads integration'],
     color: '#1a5276',
     logo: sharedLogo,
+    links: [{ label: 'Visit Website', url: 'https://4shared.com' }],
     ...getScreenshots('4shared'),
   },
   {
@@ -82,6 +89,11 @@ export const projects: Project[] = [
     techStack: ['Flutter', 'Dart', 'Firebase', 'REST API', 'React', 'RevenueCat', 'Xcode', 'Android Studio', 'Payments', 'AdMob', 'Crashlytics'],
     color: '#1e8449',
     logo: tmfLogo,
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/us/app/track-me-fast-package-tracker/id6446690898' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.trackmefast.app&hl=en_US' },
+      { label: 'Website', url: 'https://trackmefast.com/' },
+    ],
     ...getScreenshots('tmf'),
   },
   {
@@ -104,6 +116,7 @@ export const projects: Project[] = [
     techStack: ['JavaScript', 'Angular', 'HTML5', 'CSS3', 'Webpack', 'REST API', 'VAST/VPAID', 'gRPC', 'C3.js charts'],
     color: '#7d3c98',
     logo: adpLogo,
+    links: [{ label: 'Visit Website', url: 'https://adplayer.pro/' }],
     ...getScreenshots('adplayer'),
   },
   {
@@ -149,6 +162,7 @@ export const projects: Project[] = [
     techStack: ['JavaScript', 'Audio API', 'HTML5', 'CSS3', 'REST API'],
     color: '#c0392b',
     logo: rwmLogo,
+    links: [{ label: 'Visit Website', url: 'https://ringtonemakerwiz.com/' }],
     ...getScreenshots('rwm'),
   },
   {
@@ -172,6 +186,7 @@ export const projects: Project[] = [
     techStack: ['JavaScript', 'jQuery', 'HTML5', 'CSS3', 'REST API', 'Java', 'Bootstrap', 'Photoshop'],
     color: '#2e86c1',
     logo: syncLogo,
+    links: [{ label: 'Visit Website', url: 'https://en.4sync.com/' }],
     ...getScreenshots('4sync'),
   },
   {
@@ -194,6 +209,7 @@ export const projects: Project[] = [
     techStack: ['TypeScript', 'React', 'Tailwind CSS', 'GitHub Actions'],
     color: '#17a589',
     logo: fsdLogo,
+    links: [{ label: 'Try It Live', url: 'https://manaux.github.io/HW4-checker/?vin=7SAYGDEEXPF815430' }],
     ...getScreenshots('hw4checker'),
   },
 ]

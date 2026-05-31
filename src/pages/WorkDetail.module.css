@@ -83,6 +83,30 @@
   font-family: var(--font-body);
 }
 
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.linkButton {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid var(--color-accent);
+  border-radius: 20px;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-family: var(--font-nav);
+  font-size: var(--font-size-body);
+  transition: background 0.2s, color 0.2s;
+}
+
+.linkButton:hover {
+  background: var(--color-accent);
+  color: var(--color-bg-primary);
+}
+
 .description {
   color: rgba(230, 237, 243, 0.8);
   line-height: 1.7;
