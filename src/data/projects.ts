@@ -5,6 +5,8 @@ import teamyLogo from '../assets/teamy-logo.jpg'
 import rwmLogo from '../assets/rwm-logo.jpg'
 import syncLogo from '../assets/sync-logo.jpg'
 import fsdLogo from '../assets/fsd-logo.jpg'
+import icLogo from '../assets/ic-logo.png'
+import pscLogo from '../assets/psc-logo.png'
 
 const allScreenshots = import.meta.glob<{ default: string }>(
   '../assets/screenshots/**/*.{jpg,jpeg,png,webp}',
@@ -211,5 +213,53 @@ export const projects: Project[] = [
     logo: fsdLogo,
     links: [{ label: 'Try It Live', url: 'https://manaux.github.io/HW4-checker/?vin=7SAYGDEEXPF815430' }],
     ...getScreenshots('hw4checker'),
+  },
+  {
+    slug: 'instant-converter',
+    name: 'Instant Converter',
+    shortDescription: 'Type-to-convert unit & currency converter app',
+    fullDescription: '<div>\n' +
+        '  <strong>The Context</strong>\n' +
+        '  <p>Instant Converter is a personal project built to fix a small but constant annoyance: typical unit-converter apps make you pick a category, then a "from" unit, then a "to" unit, before you get an answer. The idea was simple — let people just type what they have ("25 kg", "72 F", "5.5 miles") and see every relevant conversion appear immediately, with zero menus and zero taps.</p>\n' +
+        '  <strong>The Execution</strong>\n' +
+        '  <p>I built the entire app solo in Flutter/Dart, from architecture to App Store assets, using Claude Code and Claude\'s design guidance to move fast without sacrificing code quality or UI polish. Key pieces of the build:</p>\n' +
+        '  <ul>\n' +
+        '    <li><b>Real-Time Parsing Engine:</b> A live input parser recognizes abbreviations, full unit names, and common shorthand, then instantly computes every related result across 16 categories — length, weight, temperature, volume, area, speed, time, pressure, energy, power, data storage, fuel and EV efficiency, torque, force, and currency.</li>\n' +
+        '    <li><b>Live Currency Rates, Offline-First:</b> Daily exchange rates are fetched from the European Central Bank via frankfurter.dev with no API key required, then cached locally so currency conversion keeps working — using the last known rates — even without a connection.</li>\n' +
+        '    <li><b>Built-In Calculator:</b> A full calculator with memory functions and a 30-entry history sits alongside the converter, with a one-tap handoff of results straight into the conversion input.</li>\n' +
+        '    <li><b>Cross-Platform Release Pipeline:</b> Shipped a single codebase to Android, iOS, macOS, and web, backed by Crashlytics monitoring and a unit test suite, with the iOS build going through Xcode, TestFlight, and App Store Connect ahead of release.</li>\n' +
+        '  </ul>\n' +
+        '  <strong>The Outcome</strong>\n' +
+        '  <p>The result is a fast, privacy-first conversion tool — no ads, no tracking, no account, one-time purchase — that works fully offline except for the currency feature, and matches its own pitch: type once, see every result. The Android version is live on Google Play, with the iOS release in progress through TestFlight.</p>\n' +
+        '</div>',
+    techStack: ['Flutter', 'Dart', 'Claude Code', 'Claude Design', 'Crashlytics', 'Unit Tests', 'App Promotion', 'QA', 'Xcode', 'TestFlight', 'App Store Connect'],
+    color: '#e67e22',
+    logo: icLogo,
+    links: [{ label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.manaux.instantconverter' }],
+    ...getScreenshots('instant-converter'),
+  },
+  {
+    slug: 'product-scan',
+    name: 'Product Scan',
+    shortDescription: 'Offline-first warehouse QR scanning app for a manufacturing client',
+    fullDescription: '<div>\n' +
+        '  <strong>The Context</strong>\n' +
+        '  <p>Product Scan is a custom Android app built for a manufacturing client to replace paper-based warehouse tracking. Workers scan a product\'s QR code, pick an action — produced, moved, written off, counted during inventory, and so on — and the scan needs to reach the client\'s 1C accounting system, even when the warehouse floor has no reliable network connection.</p>\n' +
+        '  <strong>The Execution</strong>\n' +
+        '  <p>I built the app end-to-end in Flutter, designing it around one hard constraint: it had to keep working when the network didn\'t. The core pieces:</p>\n' +
+        '  <ul>\n' +
+        '    <li><b>Offline-First Sync:</b> Every scan is written to a local SQLite database first, then picked up by a background sync engine that sweeps periodically and flushes immediately when connectivity returns — so a worker never has to wait on the network to keep scanning.</li>\n' +
+        '    <li><b>Role-Based Access:</b> Admin and worker roles are backed by Firebase Realtime Database, with admins managing the worker list and the specific actions each worker is allowed to perform.</li>\n' +
+        '    <li><b>Offline Authentication:</b> Worker credentials are cached locally as SHA-256 hashes, so logins keep working during network outages without ever storing plaintext passwords on the device.</li>\n' +
+        '    <li><b>Built-In QR Scanning:</b> Integrated mobile_scanner (Google ML Kit) directly in the app with permission_handler managing camera access, keeping the whole scan-and-submit flow in one screen.</li>\n' +
+        '    <li><b>Testable Architecture:</b> Repositories for workers and scans are defined behind interfaces with in-memory mock implementations, so the sync engine and UI logic are covered by unit tests without touching Firebase or SQLite in CI.</li>\n' +
+        '  </ul>\n' +
+        '  <strong>The Outcome</strong>\n' +
+        '  <p>The app is distributed directly to the client as a standalone APK — no Play Store listing needed for an internal tool like this — and gives warehouse staff a fast, reliable scanning flow that keeps recording activity whether or not the network is up, with admins able to manage worker permissions from a dedicated screen.</p>\n' +
+        '</div>',
+    techStack: ['Android Studio', 'Flutter', 'Dart', 'Material 3', 'SQLite (sqflite)', 'Firebase Realtime Database', 'Crashlytics', 'mobile_scanner (ML Kit)', 'SharedPreferences', 'crypto (SHA-256)', 'permission_handler', 'Unit Tests'],
+    color: '#f1c40f',
+    logo: pscLogo,
+    ...getScreenshots('product-scan'),
   },
 ]
